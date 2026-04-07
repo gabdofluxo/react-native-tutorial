@@ -1,14 +1,18 @@
 # Tópicos Importantes
 
 - Qual a linguagem de programação utilizada na disciplina?
-Javascript ou Typescript.
+Javascript.
 
 - O que é o Node?
-Forma de rodar o javascript no navegador.
+Forma de rodar o javascript no navegador, seja pelo terminal ou pelo servidor.
 
 - O que é Framework e qual a diferença para uma biblioteca?
-Framework é uma estrutura que define como seu código deve ser utilizado e e biblioteca é um conjunto
+Framework é uma estrutura que define como seu código deve ser utilizado e biblioteca é um conjunto
 de funções que você chama como quiser (num import por exemplo).
+
+- Qual a diferença entre as libs react, react-native, react-dom e expo?
+React é a base, o core; o react native é um complemento do react core para aplicações mobile; o react dom é tambem um complemento do react core para desenvolvimento web;
+e o expo é uma ferramenta que da suporte ao react native para criar os apps com mais facilidade.
 
 - O que é o NPM?
 O NPM é nada mais nada menos do que o gerenciador de pacotes do Node.js, onde você 
@@ -21,7 +25,7 @@ O react é uma biblioteca do javascript usada para criar interfaces num projeto 
 É um framework que permite criar aplicativos mobile, usando o javascript + react.
 
 - O que é o Expo?
-O expo é uma ferramenta que facilita criar apps com o react native, exigindo pouca configuração.
+O expo é um framework, uma ferramenta que facilita criar apps com o react native, exigindo pouca configuração.
 
 - Como estilizar um componente no React Native?
 Não utiliza css normal, usa o js com Stylesheet; Os nomes dos estilos são em CamelCase; 
@@ -34,11 +38,14 @@ Não é igual ao CSS web, não tem todas as propriedades, usa Flexbox como base 
 Padrão do React Native: import { Image } from 'react-native';
 Padrão Expo: import { Image } from 'expo-image';
 
+- O que são componentes no React?
+É um pedaço da interface.
+
 - O que são propriedades de componentes?
 As props são valores que você passa para um componente para configurar como ele vai funcionar ou aparecer.
 
 - O que são Hooks?
-Hooks são funções do react que permitem dar estado e outras funcionalidades para um componente. Agindo como se fosse um "poder extra" para esse componente.
+Hooks são funções do react que permitem dar estado e outras funcionalidades para um componente. Agindo como se fosse um "poder extra" para esse componente (só pode ser usado nele).
 
 - Para que serve e como funciona o useState?
 O useState cria estado e atualiza a interface automaticamente, retornando um [valor, funcaoDeAtualizar]
