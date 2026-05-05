@@ -1,6 +1,6 @@
-import { View, Text, StyleSheet, Button } from 'react-native'
-import { TextInput } from 'react-native'
+import { View, Text, StyleSheet, TextInput} from 'react-native'
 import { useState } from 'react'
+import Button from './Button';
 
 export default function FormSignUp() {
 
@@ -11,20 +11,23 @@ export default function FormSignUp() {
 
   const handleSubmit = async () => {
     console.log({name, email, pass, avatar})
-    const result = await fetch("http://localhost:3333/user", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({name, email, pass, avatar})
+    
+    const response = await fetch("http://localhost:3333/user", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({name, email, pass, avatar})
     })
-    if (result.ok){
-        console.log("Usuário cadastrado com sucesso!")
-        const data = await result.json()
-        console.log(data)
+
+    if(response.ok){
+      console.log("Usuário cadastrado com sucesso!")
+      const data = await response.json()
+      console.log(data)
     } else {
-        console.log("Erro ao cadastrar usuário")
+      console.log("Erro ao cadastrar usuário")
     }
+
   }
 
   return (
@@ -50,7 +53,7 @@ export default function FormSignUp() {
             value={pass}
             onChangeText={setPass}
         />
-         <TextInput 
+        <TextInput 
             style={styles.inputs} 
             placeholder="Avatar" 
             value={avatar}
