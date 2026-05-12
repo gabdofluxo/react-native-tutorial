@@ -3,20 +3,20 @@ import { useState } from 'react'
 import Button from './Button';
 import { useUserStore } from '../stores/userStore';
 
-export default function FormSignUp() {
+export default function FormEditUser() {
 
-  const { addUser } = useUserStore();
+  const { addUser, userToEdit, updateUser } = useUserStore();
 
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [pass, setPass] = useState("")
-  const [avatar, setAvatar] = useState("")
+  const [name, setName] = useState(userToEdit.name)
+  const [email, setEmail] = useState(userToEdit.email)
+  const [pass, setPass] = useState(userToEdit.pass)
+  const [avatar, setAvatar] = useState(userToEdit.avatar)
 
   const handleSubmit = async () => {
     console.log({name, email, pass, avatar})
     
-    const response = await fetch("http://localhost:3333/user", {
-      method: "POST",
+    const response = await fetch(`http://localhost:3333/user/${userToEdit.id}`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json"
       },
@@ -24,19 +24,19 @@ export default function FormSignUp() {
     })
 
     if(response.ok){
-      alert("Usuário cadastrado com sucesso!")
+      alert("Usuário editado com sucesso!")
       const data = await response.json()
-      addUser(data.user)
-      console.log(data)
+      updateUser(data.user, userToEdit.id)
+      console.log(data.user)
     } else {
-      alert("Erro ao cadastrar usuário")
+      alert("Erro ao editar usuário")
     }
 
   }
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Cadastro</Text>
+      <Text style={styles.title}>Editar Usuário</Text>
       <View style={styles.form}>
         <TextInput 
             style={styles.inputs} 
@@ -63,7 +63,7 @@ export default function FormSignUp() {
             value={avatar}
             onChangeText={setAvatar}
         />
-        <Button title="Cadastrar" onPress={handleSubmit} />
+        <Button title="Editar" onPress={handleSubmit} />
       </View>
     </View>
   )

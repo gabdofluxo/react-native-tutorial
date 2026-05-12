@@ -63,6 +63,13 @@ Extra
 - Arrays
 - Condição Ternária 
 
+--- Próximos Tópicos (Avaliação 2)
+
+- Navegação
+    - Quais os padrões de navegação do Expo Router vimos em aula? Stack, tabs.
+    - Quais as características de cada um deles? O Stack é o modo empilhamento, pagina sobre pagina; O tabs cria uma barra de navegação na parte inferior do app.
+    - Posso utilizar apenas um deles ou ambos ao mesmo tempo no projeto? Pode utilizar ambos.
+
 ## Comandos Uteis
 
 // Como instalar o React Native com Expo?
